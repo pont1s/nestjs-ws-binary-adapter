@@ -1,0 +1,26 @@
+{
+  "name": "nestjs-ws-pako-adapter",
+  "version": "9.0.8",
+  "description": "A WS adapter for NestJS with compression and binary format",
+  "author": "Maxim Mostovoy",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/int1m/nestjs-ws-pako-adapter"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "tslib": "2.4.0",
+    "ws": "8.8.1"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/websockets": "^9.0.0",
+    "rxjs": "^7.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.6.3"
+  }
+}
