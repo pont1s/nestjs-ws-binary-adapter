@@ -10,6 +10,7 @@ import { MessageMappingProperties } from '@nestjs/websockets/gateway-metadata-ex
 import * as http from 'http';
 import { EMPTY, fromEvent, Observable } from 'rxjs';
 import { filter, first, mergeMap, share, takeUntil } from 'rxjs/operators';
+import { pack, unpack } from 'msgpackr';
 
 let wsPackage: any = {};
 
@@ -115,7 +116,7 @@ export class WsAdapter extends AbstractWsAdapter {
             if (client.readyState !== READY_STATE.OPEN_STATE) {
                 return;
             }
-            client.send(JSON.stringify(response));
+            client.send(pack(response));
         };
         source$.subscribe(onMessage);
     }
@@ -126,7 +127,7 @@ export class WsAdapter extends AbstractWsAdapter {
         transform: (data: any) => Observable<any>,
     ): Observable<any> {
         try {
-            const message = JSON.parse(buffer.data);
+            const message = unpack(buffer.data);
             const messageHandler = handlers.find(
                 handler => handler.message === message.event,
             );
