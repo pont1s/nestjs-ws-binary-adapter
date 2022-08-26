@@ -147,7 +147,6 @@ export class WsAdapter extends AbstractWsAdapter {
   }
 
   public bindClientConnect(server: any, callback: Function) {
-    super.bindClientConnect(server, callback);
     server.on(CONNECTION_EVENT, (ws: any, req: any, client: unknown) => {
       ws.remoteAddress = req.socket.remoteAddress;
       if (req.headers['x-forwarded-for']) {

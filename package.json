@@ -1,6 +1,6 @@
 {
   "name": "nestjs-ws-binary-adapter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A WS adapter for NestJS with compression and binary format",
   "author": "Maxim Mostovoy",
   "license": "MIT",
